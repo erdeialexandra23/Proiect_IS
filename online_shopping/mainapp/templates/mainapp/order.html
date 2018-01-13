@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>Order</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../static/css/base.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/black.css"/>
+
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+
+</style>
+<body>
+
+</body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Your order</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                {% for item in cart %}
+                    <li class="list-group-item">
+                        ${{ item.total_price }}
+                        <span class="badge">{{ item.product.name }} x{{ item.quantity }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Total: ${{ cart.get_total_price }}</p>
+
+        </div>
+    </div>
+
+    <h1>Checkout</h1>
+    <form action="." method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-success btn-product">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Place order
+            </button>
+        {% endbuttons %}
+    </form>
+</html>

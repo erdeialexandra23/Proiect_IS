@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Views</title>
+    <style> table, th, td { border: 1px solid black;}
+</style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Name</th>
+        <th>ProductID</th>
+        <th>Gender</th>
+        <th>Amount</th>
+        <th>Price</th>
+        <th>Size</th>
+    </tr>
+    {% for item in query_results %}
+    <tr>
+        <td>{{ item.category }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.productID }}</td>
+        <td>{{ item.sex }}</td>
+        <td>{{ item.amount }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.size }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

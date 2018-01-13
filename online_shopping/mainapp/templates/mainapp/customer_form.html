@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>New Account</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/base.css"/>
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+
+<header class="w3-bar w3-top w3-black w3-xlarge">
+      <div style="background-color:black;color:white;padding:20px;">
+        <a href="/main/" class="w3-right" style="text-decoration:none;font-size:70%;">Back to the site</a>
+        <h3 class="w3-wide  w3-center"><b>FASHION DU JOUR - CREATE NEW ACCOUNT</b></h3>
+      </div>
+</header>
+
+<body class="w3-padding-64 w3-light-grey w3-small">
+    <div class="w3-row-padding " >
+      <div class="w3-col s3">
+        <form action="" method="post" target="_blank">
+            <p>Please fill in your informations</p>
+            {% csrf_token %}
+            {% include 'mainapp/form-template.html' %}
+            <div class="form-group">
+                <div class="col-sm-offset-2">
+                    <button type="submit" class="w3-black w3-xlarge">Register</button>
+                </div>
+            </div>
+
+        </form>
+      </div>
+    </div>
+</body>
+</html>
